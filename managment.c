@@ -3,6 +3,13 @@
 #include"splash.h"
 #include"login.h"
 
+typedef struct {
+     
+     char username[40];
+     char password[40]; 
+
+ }login;
+
 int main(void){
 
    
@@ -10,17 +17,16 @@ int main(void){
    sleep(5);
    system("cls");
 
-   char username[40];
-   char password[40]; 
+    login check;
 
     while(1){
         printf("Enter Username:");
-        scanf("%s",username);
+        scanf("%s",check.username);
 
         printf("Enter Password:");
-        scanf("%s",password);
+        scanf("%s",check.password);
 
-        if(checkLogin(username,password)==1){
+        if(checkLogin(check.username,check.password)==1){
             printf("Login Successful!!!\n");
             break;
         }
