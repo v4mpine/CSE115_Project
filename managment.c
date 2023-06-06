@@ -8,6 +8,7 @@ int main(void){
    printSplashScreen();
    sleep(5);
    system("cls");
-   printf("ghumai");
+
+   
     return 0;
 }
