@@ -21,7 +21,7 @@ void printSplashScreen(void){
 
     while((ch = fgetc(ptr))!= EOF){
         printf("%c",ch);
-        //usleep(1000);   
+        usleep(1000);   
     }
 
     fclose(ptr);
