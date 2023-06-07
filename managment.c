@@ -3,6 +3,7 @@
 #include"splash.h"
 #include"login.h"
 
+
 typedef struct {
      
      char username[40];
