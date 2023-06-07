@@ -32,12 +32,4 @@ int checkLogin(char *username , char *password){
     
 }
 
-
-
-
-
-
-
-
-
 #endif 
