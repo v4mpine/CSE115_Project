@@ -20,7 +20,7 @@ int checkLogin(char *username , char *password){
 
     fscanf(ptr,"%s %s",fileUsername,filePassword);
 
-    if(strcmp(fileUsername,username)==0 && strcmp(filePassword,password)==0){
+    if(strcmp(fileUsername,username) == 0 && strcmp(filePassword,password) == 0){
         flag = 1;
     }
 
