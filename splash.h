@@ -20,15 +20,11 @@ void printSplashScreen(void){
     char ch;
 
     while((ch = fgetc(ptr))!= EOF){
-        fprintf(stdout,"%c",ch);
-        usleep(5000);   
+        printf("%c",ch);
+        usleep(1000);   
     }
 
     fclose(ptr);
-
-
-
-
 
 }
 
