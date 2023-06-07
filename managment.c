@@ -9,8 +9,8 @@
 int main(void){
 
 
-   //printSplashScreen();
-   //sleep(5);
+   printSplashScreen();
+   sleep(5);
    system("cls");
 
    LoginProcess(); 
