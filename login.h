@@ -24,8 +24,10 @@ void LoginProcess(void){
     while(1){
             printf("1.Login\n");
             printf("2.Create a new account\n");
+            printf("\n");
             printf("Enter your choice:");
             scanf("%d",&choice);
+            printf("\n");
             switch(choice){
                 case 1:
                        printf("Enter your username: ");
@@ -65,6 +67,7 @@ void LoginProcess(void){
             if(flag == 1){
                 break;
             }
+            printf("\n");
 
         }
 }

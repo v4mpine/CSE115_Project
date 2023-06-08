@@ -10,13 +10,13 @@
 int main(void){
 
 
-   printSplashScreen();
-   sleep(5);
-   system("cls");
-
-   LoginProcess(); 
-   system("cls");
-   menu();
+    printSplashScreen();
+    sleep(5);
+    system("cls");
+    
+    LoginProcess(); 
+    system("cls");
+    menu();
    
    
 

@@ -13,7 +13,7 @@ typedef struct sea{
 void viewFish(void);
 
 void menu(void){
-    printf("Welcome to the menu\n");
+    printf("Welcome to the menu......\n");
     printf("\n");
     int flag = 0;
     int choice;
@@ -45,7 +45,7 @@ void menu(void){
                     break;
 
             default: 
-                    printf("Invalid choice\n");
+                    printf("Invalid choice.Try again!!!\n");
                     break;
                      
         }
@@ -74,7 +74,7 @@ void viewFish(void){
     printf("Name\tStock\tPrice\tWeight\n");
     printf("\n");
 
-    while (fscanf(ptr, "%s%d%d%f", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
+    while (fscanf(ptr, "%s\t%d\t%d\t%f\n", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
         printf("%s\t%d\t%d\t%.2f\n", s1.name, s1.stock, s1.price, s1.weight);
     }
     fclose(ptr); 
