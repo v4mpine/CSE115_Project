@@ -17,11 +17,11 @@ void printSplashScreen(void){
         return ;
     }
 
-    char ch;
-
-    while((ch = fgetc(ptr))!= EOF){
-        printf("%c",ch);
-        usleep(1000);   
+    char ch[300];
+   
+    while(fgets(ch,300,ptr)){
+        printf("%s",ch);
+        usleep(100000);
     }
 
     fclose(ptr);
