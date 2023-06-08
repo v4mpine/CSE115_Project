@@ -2,6 +2,7 @@
 #include<dos.h>
 #include"splash.h"
 #include"login.h"
+#include"menu.h"
 
 
 
@@ -14,7 +15,8 @@ int main(void){
    system("cls");
 
    LoginProcess(); 
-
+   system("cls");
+   menu();
    
    
 
