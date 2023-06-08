@@ -21,9 +21,7 @@ void LoginProcess(void){
     int flag = 0;
     int choice;
     
-    
-
-        while(1){
+    while(1){
             printf("1.Login\n");
             printf("2.Create a new account\n");
             printf("Enter your choice:");
