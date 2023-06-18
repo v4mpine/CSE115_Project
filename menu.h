@@ -73,7 +73,7 @@ void viewFish(void){
         return;
     }
 
-    printf("Name\tStock\tPrice\tWeight\n");
+    printf("Name\tStock\tPrice\tWeight(gm)\n");
     printf("\n");
 
     while (fscanf(ptr, "%s\t%d\t%d\t%f\n", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
