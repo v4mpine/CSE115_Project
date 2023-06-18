@@ -36,7 +36,9 @@ void menu(void){
                     viewFish();
                     break;
 
-            case 5: 
+            case 2:
+
+
 
             case 6: 
                     printf("Thank you for buying fish from us\n");
@@ -80,6 +82,8 @@ void viewFish(void){
     fclose(ptr); 
 
 }
+
+void addFish(void){}
 
 
 
