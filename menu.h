@@ -88,7 +88,7 @@ void viewFish(void){
 
     ptr = fopen("menu.txt","r");
 
-    if(ptr == NULL){
+    if(ptr == '\0'){
         printf("Can not open the file\n");
 
         return;
@@ -112,7 +112,7 @@ void addFish(void){
 
     ptr = fopen("menu.txt","a");
 
-    if (ptr == NULL) {
+    if (ptr == '\0') {
         printf("Cannot open the file\n");
         return;
     }
@@ -156,7 +156,7 @@ void buyFish(void){
     buyPtr = fopen("buyfish.txt", "w"); // Open in write mode to clear the file
     tempPtr = fopen("temp.txt", "w");
 
-    if (menuPtr == NULL || buyPtr == NULL || tempPtr == NULL) {
+    if (menuPtr == '\0' || buyPtr == '\0' || tempPtr == '\0') {
         printf("Cannot open the file\n");
         return;
     }
