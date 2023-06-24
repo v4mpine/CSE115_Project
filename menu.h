@@ -3,7 +3,7 @@
 
 #include<stdio.h>
 
-typedef struct sea{
+typedef struct {
     char name[50];
     int stock;
     int price;
@@ -11,6 +11,7 @@ typedef struct sea{
 }fish;
 
 void viewFish(void);
+void addFish(void);
 
 void menu(void){
     printf("Welcome to the menu......\n");
@@ -37,12 +38,14 @@ void menu(void){
                     break;
 
             case 2:
+                    addFish();
+                    break;
 
 
 
             case 6: 
-                    printf("Thank you for buying fish from us!!\n");
-                    printf("Have a good day!!\n");
+                    printf("Thank you for buying fish from us\n");
+                    printf("Have a good day\n");
                     flag = 1;
                     break;
 
@@ -73,17 +76,49 @@ void viewFish(void){
         return;
     }
 
-    printf("Name\tStock\tPrice\tWeight(gm)\n");
+    printf("Name\t\tStock\tPrice\tWeight(gm)\n");
     printf("\n");
 
-    while (fscanf(ptr, "%s\t%d\t%d\t%f\n", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
-        printf("%s\t%d\t%d\t%.2f\n", s1.name, s1.stock, s1.price, s1.weight);
+    while (fscanf(ptr, "%s\t\t%d\t%d\t%f\n", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
+        printf("%s\t\t%d\t%d\t%.2f\n", s1.name, s1.stock, s1.price, s1.weight);
     }
     fclose(ptr); 
 
 }
 
-void addFish(void){}
+void addFish(void){
+    
+    fish s2;
+    
+    FILE *ptr;
+
+    ptr = fopen("menu.txt","a");
+
+    if (ptr == NULL) {
+        printf("Cannot open the file\n");
+        return;
+    }
+
+    printf("Enter the name of the fish: ");
+    scanf("%s", s2.name);
+
+    printf("Enter the stock of the fish: ");
+    scanf("%d", &s2.stock);
+
+    printf("Enter the price of the fish: ");
+    scanf("%d", &s2.price);
+
+    printf("Enter the weight of the fish: ");
+    scanf("%f", &s2.weight);
+
+    fprintf(ptr, "%s\t\t%d\t%d\t%.2f\n", s2.name, s2.stock, s2.price, s2.weight);
+
+    fclose(ptr);
+    
+    printf("\n");
+
+    printf("Fish added successfully!\n");
+}
 
 
 
