@@ -7,16 +7,17 @@
 
 
 
+
 int main(void){
 
 
     printSplashScreen();
-     sleep(5);
-     system("cls");
-    
-     LoginProcess();
+    sleep(5);
+    system("cls");
+    LoginProcess();
     system("cls");
     menu();
+    system("cls");
    
    
 

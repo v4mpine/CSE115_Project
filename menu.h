@@ -1,8 +1,12 @@
 #ifndef MENU_H
 #define MENU_H
 
+
 #include<stdio.h>
 #include<stdlib.h>
+
+
+
 
 typedef struct {
     char name[50];
@@ -17,6 +21,9 @@ void buyFish(void);
 void billSlip(void);
 
 
+
+
+
 void menu(void){
     printf("Welcome to the menu......\n");
     printf("\n");
@@ -29,7 +36,7 @@ void menu(void){
         printf("2.Add fish\n");
         printf("3.Buy fish\n");
         printf("4.Bill slip\n");
-        printf("5.Terms & Policy\n");
+        printf("5.Terms and Policies\n");
         printf("6.Exit\n");
         printf("\n");
         printf("Enter your choice:");
@@ -37,7 +44,7 @@ void menu(void){
         printf("\n\n");
 
         switch(choice){
-            case 1: 
+            case 1:
                     viewFish();
                     break;
 
@@ -52,34 +59,41 @@ void menu(void){
                             fflush(stdin);
                             if (getch() == '\r')
                                 break;
-                             
+
                 }
                 break;
             case 4:
                     billSlip();
-                    break;
-            
-            case 5:
-
-            case 6: 
+                    printf("\n\n\n");
                     printf("Thank you for buying fish from us\n");
                     printf("Have a good day\n");
-                    flag = 1;
                     break;
 
-            default: 
+            case 5:
+                    system("F:\\Project\\CSE115_Project\\trade_image.jpeg");
+                    break;
+
+            
+            case 6:
+                    flag = 1;
+                    break;
+            default:
                     printf("Invalid choice.Try again!!!\n");
                     break;
-                     
+
         }
         printf("\n");
 
         if(flag == 1){
-            break;
+           remove("buyfish.txt");
+           break;
+
         }
-        
+
     }
 }
+
+
 
 void viewFish(void){
     fish s1;
@@ -88,7 +102,7 @@ void viewFish(void){
 
     ptr = fopen("menu.txt","r");
 
-    if(ptr == '\0'){
+    if(ptr ==   NULL){
         printf("Can not open the file\n");
 
         return;
@@ -100,19 +114,19 @@ void viewFish(void){
     while (fscanf(ptr, "%s\t\t%d\t%d\t%f\n", s1.name, &s1.stock, &s1.price, &s1.weight) == 4) {
         printf("%s\t\t%d\t%d\t%.2f\n", s1.name, s1.stock, s1.price, s1.weight);
     }
-    fclose(ptr); 
+    fclose(ptr);
 
 }
 
 void addFish(void){
-    
+
     fish s2;
-    
+
     FILE *ptr;
 
     ptr = fopen("menu.txt","a");
 
-    if (ptr == '\0') {
+    if (ptr == NULL) {
         printf("Cannot open the file\n");
         return;
     }
@@ -132,14 +146,14 @@ void addFish(void){
     fprintf(ptr, "%s\t\t%d\t%d\t%.2f\n", s2.name, s2.stock, s2.price, s2.weight);
 
     fclose(ptr);
-    
+
     printf("\n");
 
     printf("Fish added successfully!\n");
 }
 
 void buyFish(void){
-   char fishName[50];
+    char fishName[50];
     int quantity;
 
     printf("Enter the name of the fish you want to buy: ");
@@ -153,10 +167,10 @@ void buyFish(void){
     FILE* tempPtr;
 
     menuPtr = fopen("menu.txt", "r");
-    buyPtr = fopen("buyfish.txt", "w"); // Open in write mode to clear the file
+    buyPtr = fopen("buyfish.txt", "a");
     tempPtr = fopen("temp.txt", "w");
 
-    if (menuPtr == '\0' || buyPtr == '\0' || tempPtr == '\0') {
+    if (menuPtr == NULL || buyPtr == NULL || tempPtr == NULL) {
         printf("Cannot open the file\n");
         return;
     }
@@ -192,7 +206,7 @@ void buyFish(void){
 }
 
 void billSlip(void){
-    
+
     fish s4;
 
     FILE* buyPtr;
