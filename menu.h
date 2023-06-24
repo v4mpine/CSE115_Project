@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include<stdio.h>
+#include<stdlib.h>
 
 typedef struct {
     char name[50];
@@ -12,6 +13,9 @@ typedef struct {
 
 void viewFish(void);
 void addFish(void);
+void buyFish(void);
+void billSlip(void);
+
 
 void menu(void){
     printf("Welcome to the menu......\n");
@@ -24,7 +28,7 @@ void menu(void){
         printf("1.View all fish\n");
         printf("2.Add fish\n");
         printf("3.Buy fish\n");
-        printf("4.Search fish\n");
+        printf("4.Bill slip\n");
         printf("5.Terms & Policy\n");
         printf("6.Exit\n");
         printf("\n");
@@ -41,7 +45,21 @@ void menu(void){
                     addFish();
                     break;
 
-
+            case 3:
+                    while (1) {
+                            buyFish();
+                            printf("Press any key to buy more fish or 'Enter' to stop buying...\n");
+                            fflush(stdin);
+                            if (getch() == '\r')
+                                break;
+                             
+                }
+                break;
+            case 4:
+                    billSlip();
+                    break;
+            
+            case 5:
 
             case 6: 
                     printf("Thank you for buying fish from us\n");
@@ -118,6 +136,91 @@ void addFish(void){
     printf("\n");
 
     printf("Fish added successfully!\n");
+}
+
+void buyFish(void){
+   char fishName[50];
+    int quantity;
+
+    printf("Enter the name of the fish you want to buy: ");
+    scanf("%s", fishName);
+
+    printf("Enter the quantity: ");
+    scanf("%d", &quantity);
+
+    FILE* menuPtr;
+    FILE* buyPtr;
+    FILE* tempPtr;
+
+    menuPtr = fopen("menu.txt", "r");
+    buyPtr = fopen("buyfish.txt", "w"); // Open in write mode to clear the file
+    tempPtr = fopen("temp.txt", "w");
+
+    if (menuPtr == NULL || buyPtr == NULL || tempPtr == NULL) {
+        printf("Cannot open the file\n");
+        return;
+    }
+
+    fish s3;
+    int found = 0;
+
+    while (fscanf(menuPtr, "%s\t\t%d\t%d\t%f\n", s3.name, &s3.stock, &s3.price, &s3.weight) == 4) {
+        if (strcmp(s3.name, fishName) == 0) {
+            found = 1;
+            if (s3.stock >= quantity) {
+                s3.stock -= quantity;
+                printf("Fish bought successfully!\n");
+                fprintf(buyPtr, "%s\t\t%d\t%d\t%.2f\n", s3.name, quantity, s3.price, s3.weight);
+            } else {
+                printf("Not enough stock available for the selected fish.\n");
+            }
+        }
+        fprintf(tempPtr, "%s\t\t%d\t%d\t%.2f\n", s3.name, s3.stock, s3.price, s3.weight);
+    }
+
+    fclose(menuPtr);
+    fclose(buyPtr);
+    fclose(tempPtr);
+
+    if (!found) {
+        printf("Fish not found in the menu\n");
+        remove("temp.txt");
+    } else {
+        remove("menu.txt");
+        rename("temp.txt", "menu.txt");
+    }
+}
+
+void billSlip(void){
+    
+    fish s4;
+
+    FILE* buyPtr;
+
+    buyPtr = fopen("buyfish.txt", "r");
+
+    if (buyPtr == NULL) {
+        printf("Can not open the file\n");
+        return;
+    }
+
+    int totalPrice = 0;
+
+    printf("\n\nBill Slip\n");
+    printf("--------------\n");
+
+    while (fscanf(buyPtr, "%s\t\t%d\t%d\t%f\n", s4.name, &s4.stock, &s4.price, &s4.weight) == 4) {
+        int price = s4.price * s4.stock;
+        printf("\nFish Name: %s\n", s4.name);
+        printf("Price per piece: %d\n", s4.price);
+        printf("Quantity: %d\n", s4.stock);
+        printf("Total Price: %d\n", price);
+        totalPrice += price;
+    }
+
+    fclose(buyPtr);
+
+    printf("\nTotal Bill: %d\n", totalPrice);
 }
 
 
