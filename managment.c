@@ -14,7 +14,7 @@ int main(void){
     sleep(5);
     system("cls");
     
-    LoginProcess(); 
+    LoginProcess();
     system("cls");
     menu();
    

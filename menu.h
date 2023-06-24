@@ -41,8 +41,8 @@ void menu(void){
 
 
             case 6: 
-                    printf("Thank you for buying fish from us\n");
-                    printf("Have a good day\n");
+                    printf("Thank you for buying fish from us!!\n");
+                    printf("Have a good day!!\n");
                     flag = 1;
                     break;
 
