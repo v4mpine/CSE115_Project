@@ -55,6 +55,7 @@ void menu(void){
             case 3:
                     while (1) {
                             buyFish();
+                            printf("\n");
                             printf("Press any key to buy more fish or 'Enter' to stop buying...\n");
                             fflush(stdin);
                             if (getch() == '\r')
@@ -70,7 +71,7 @@ void menu(void){
                     break;
 
             case 5:
-                    system("F:\\Project\\CSE115_Project\\trade_image.jpeg");
+                    showLicense();
                     break;
 
             
@@ -235,6 +236,24 @@ void billSlip(void){
     fclose(buyPtr);
 
     printf("\nTotal Bill: %d\n", totalPrice);
+}
+
+void showLicense(void){
+
+    printf("1.Quality Assurance Policy\n");
+    printf("2.Order & Delivery terms\n");
+    printf("3.Sustainable Sourcing Policy\n");
+    printf("4.Pricing & Payment Terms\n");
+    printf("5.Privacy & Data Protection\n");
+    printf("6.Customer Support & Communication\n");
+
+    printf("\n\n");
+    printf("Press 'Enter' to show our licesne or Press any other key to return to menu\n");
+    fflush(stdin);
+    if(getchar() == '\n'){
+            system("F:\\Project\\CSE115_Project\\trade_image.jpeg");
+    }
+
 }
 
 
