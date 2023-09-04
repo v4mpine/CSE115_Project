@@ -3,8 +3,12 @@
 #include<stdio.h>
 #include<string.h>
 
+
+/*
+Username and Password  string is in a structure  
+*/
 typedef struct{
-    char username[100];
+    char username[100]; // having a big size of a string
     char password[100];
 
 }login;
